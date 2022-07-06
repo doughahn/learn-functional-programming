@@ -44,9 +44,9 @@ main=
 -- d) Define `multiplyAndFormat` (implement it)
 mutliply : Int -> Int -> Int
 multiply z = x * y
-multiplyAndFormat : Int -> String
-multiplyAndFormat = multiply 555
-main = text (String.fromInt(multiplyAndFormat 555))
+multiplyAndFormat : Int -> Int -> String
+multiplyAndFormat = (String.fromInt(x * y)) 
+main = text (String.fromInt(multiplyAndFormat))
 
 -- Question 6 (Partial Application)
 -- a) Define a new function called `multiplyByTwoAgain`, but this time make it by partially applying `multiply`
