@@ -16,12 +16,11 @@ multiply a b =
   a * b
   -- Type annotation Int -> Int -> Int; a*b=c
 
-multiplyAndFormat: Int -> Int
-multiplyAndFormat = 
-  multiply 666
-  -- Type annotation Int -> Int; (a*b=c)*666; define multiplyAndFormat
+multiplyAndFormat: Int -> Int -> String
+multiplyAndFormat x y = 
+  String.fromInt (multiply x y)
 
 main=
  text (
-    String.fromInt(multiplyAndFormat 666)
+    multiplyAndFormat 2 2
     )

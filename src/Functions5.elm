@@ -26,17 +26,20 @@ multiplyByTwoAgain =
   multiplyByTwo 2 
   -- Type annotation Int
 
-multiplyAndFormat: Int -> Int
-multiplyAndFormat = 
-  multiply 666
-  -- Type annotation Int -> Int; (a*b=c)*666; define multiplyAndFormat
+multiplyAndFormat: Int -> Int -> String
+multiplyAndFormat x y = 
+  String.fromInt (multiply x y)
 
-multiplyByTwoAndFormat : Int
-multiplyByTwoAndFormat =
-  multiplyAndFormat 2 * multiplyByTwoAgain
+-- "multiplyByTwoAndFormat`. Make it through partially application of `multiplyAndFormat" 
+-- Not sure I understand how to multiply the "multiplyAndFormat" String by 2. Are
+-- you looking for us to convert back from a strong to int, then back to int for the final 
+-- result of the function?
 
+multiplyByTwoAndFormat: Int -> Int -> String
+multiplyByTwoAndFormat x y = 
+  String.fromInt ((multiply x y)*2)
 
 main=
  text (
-    String.fromInt(multiplyByTwoAndFormat) ++ " = " ++  String.fromInt(multiplyAndFormat 2) ++ " * " ++ String.fromInt(multiplyByTwo 2)
+    multiplyByTwoAndFormat 4 16
     )
