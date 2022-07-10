@@ -35,4 +35,4 @@ sixteen = multiplyByTwo <| eight
 main=
  text (
     String.fromInt(four) ++ " = Const value; " ++ (String.fromInt(sixteen |> multiplyByTwo) ++ " =sixteen |> multiplyByTwo " ++ (String.fromInt(multiplyByTwo <| four) ++ "= multiplyByTwo <| four "))
-    )
+    )   
