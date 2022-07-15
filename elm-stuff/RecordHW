@@ -1,0 +1,157 @@
+module Main exposing (main)
+
+import Browser
+import Html exposing (Html, button, div, text)
+import Html.Events exposing (onClick)
+
+
+
+-- Use a record type to represent a "Person"
+--
+-- (a) Each "Person" should have three attributes, and
+--     all of the attributes are required (ie, not optional)
+--       * First Name
+--       * Last Name
+--       * Age
+--
+-- (b) Create  3 instances of these people records.
+--        * define them
+--        * also provide their type annotations
+--
+-- (c) Bonus: Display one of them in HTML somehow
+
+
+type alias Person =
+    { firstname : String, lastname : String, age : Int }
+
+
+jimmychai : Person
+jimmychai =
+    { firstname = "Jimmy", lastname = "Chai", age = 41 }
+
+
+doughahn : Person
+doughahn =
+    { firstname = "Dougie", lastname = "Hanh", age = 21 }
+
+
+lakinwecker : Person
+lakinwecker =
+    { firstname = "Professor", lastname = "Lakin", age = 1000 }
+
+
+
+-- Use Maybe
+--
+-- (a) Add a "title" attribute to the "Person" record. This attribute
+--     is optional. If it's specified, it may contain any string,
+--     but it can be unspecified as well.
+--
+-- (b) Demonstrate its use with the "People" instances you made in the
+--     previous Question.
+--
+-- (c) Bonus: Add it to the display. If it is specified, display the string
+--            if it's not specified display no output.
+
+
+type alias Person2 =
+    { firstname : String, lastname : String, title : Maybe String, age : Int }
+
+
+jimmychait : Person2
+jimmychait =
+    { firstname = "Jimmy", lastname = "Chai", title = "Tesla4life", age = 41 }
+
+
+doughahnt : Person2
+doughahnt =
+    { firstname = "Dougie", lastname = "Hanh", title = "Brady gets owned by me", age = 21 }
+
+
+lakinweckert : Person2
+lakinweckert =
+    { firstname = "Professor", lastname = "Lakin", title = "python sucks", age = 1000 }
+
+
+
+-- Use a Sum Type
+--
+-- (a) Make a new Sum Type which is called `Title`.  It can be any one
+--     of a predefined set of titles, like `PhD`, `MSc` or any other ones
+--     you want to use.
+--
+--     Change the title attribute of the Person record to use this SumType.
+--     The title attribute should still be optional. However, when it is
+--     specified, it can now only be one of the given types above.
+--
+-- (b) Demonstrate its use with the "People" instances you made in the
+--     previous Question.
+--
+-- (c) Make a function which converts titles into a string representation.
+--
+-- (d) Bonus: Add the new title types to the display.
+
+
+type Title
+    = PHD
+    | BadAss
+    | Closer
+    | MD
+    | BS
+    | MA
+    | BA
+
+
+type alias Person3 =
+    { firstname : String, lastname : String, title : Maybe Title, age : Int }
+
+
+jimmychaiti : Person3
+jimmychaiti =
+    { firstname = "Jimmy", lastname = "Chai", title = "Closer", age = 41 }
+
+
+doughahnti : Person3
+doughahnti =
+    { firstname = "Dougie", lastname = "Hanh", title = "BadAss", age = 21 }
+
+
+lakinweckerti : Person3
+lakinweckerti =
+    { firstname = "Professor", lastname = "Lakin", title = "PHD", age = 1000 }
+
+
+
+-- Make a function which converts the Person record into HTML.
+-- (yes, this was the bonus pieces from the previous questions.)
+--
+-- (a) The type annotation for this function will be something like:
+--     personDisplay: Person -> Html Msg
+--     personDisplay person = ... -- <- you should implement this.
+--
+--     If you don't know html, consider just using something simple
+--     formatting like bolding their name, title in regular text and
+--     age  in italics.
+--
+-- (b) Use it in your view function:
+--      * First for one person
+--      * then for all of them (duplicating the code that use it for each
+--        person is fine.)
+
+
+
+-- Use Lists
+--
+-- (a) Create a constant named `people` that is a list of people.
+--     Define it to be all of the people you made in the previous question.
+--     Add its type annotation.
+--
+-- (b) Use the list in your view to display all of these people.
+--     Hint: You'll need to use `List.map`
+people : List String
+people =
+    [ "Jimmy", "Doug", "Lakin" ]
+
+list.map (String.startsWith "Jimmy") Jimmy
+list.map (String.startsWith "Doug") Doug
+list.map (String.startsWith "Lakin") Lakin
