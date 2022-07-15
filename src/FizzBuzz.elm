@@ -17,7 +17,7 @@ buzz x =
     if (modBy 5 x == 0) then
         "Buzz"
     else
-        ""
+        String.fromInt x
 
 fizzbuzz: Int -> String
 fizzbuzz x =
@@ -25,6 +25,6 @@ fizzbuzz x =
 
 main=
  text (
-    fizzbuzz 30
+    fizzbuzz 15
   )
 
