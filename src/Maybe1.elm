@@ -1,21 +1,8 @@
--- Use Maybe
---
--- (a) Add a "title" attribute to the "Person" record. This attribute
---     is optional. If it's specified, it may contain any string,
---     but it can be unspecified as well.
---
--- (b) Demonstrate its use with the "People" instances you made in the
---     previous Question.
-
--- 
--- (c) Bonus: Add it to the display. If it is specified, display the string
---            if it's not specified display no output.
--- (c) Bonus: Display one of them in HTML somehow
-
 module Maybe1 exposing (..)
 
 import Browser
 import Html exposing (Html, text)
+
 
 type alias Person =
     { firstName : String
@@ -24,8 +11,9 @@ type alias Person =
     , title : Maybe String
     }
 
+
 doug : Person
-doug = 
+doug =
     { firstName = "Doug"
     , lastName = "Hahn"
     , age = 42
@@ -34,32 +22,36 @@ doug =
 
 
 jimmy : Person
-jimmy = 
+jimmy =
     { firstName = "Jimmy"
     , lastName = "Chai"
     , age = 30
     , title = Nothing
     }
 
+
 lakin : Person
-lakin = 
+lakin =
     { firstName = "Lakin"
     , lastName = "Wecker"
     , age = 31
     , title = Nothing
     }
 
-userTitle : Person -> Bool -> string
-userTitle person =
-  case person.title of
-    Nothing ->
-      False
 
-    Just title ->
-      title == title
 
-main=
- text (
-    "hello"    
-  )
+-- We have a Maybe String, we want a String
 
+
+displayTitle : Maybe String -> String
+displayTitle personTitle =
+    case personTitle of
+        Nothing ->
+            ""
+
+        Just title ->
+            title
+
+
+main =
+    doug.title |> displayTitle |> text 
