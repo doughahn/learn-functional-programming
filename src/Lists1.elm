@@ -108,7 +108,11 @@ personDisplay person =
         ]
     ]
 
-
+-- I need to get the list of people and map each one through the persondisplay function
+-- List (people) -> persondisplay
+-- personDisplay doug
+map : people -> personDisplay 
+map = List.map (personDisplay people)
 
 main =
     text("hello")
