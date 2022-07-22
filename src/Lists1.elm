@@ -1,20 +1,13 @@
--- Make a function which converts the Person record into HTML. 
--- (yes, this was the bonus pieces from the previous questions.)
+-- Use Lists 
 --
--- (a) The type annotation for this function will be something like:
---     personDisplay: Person -> Html Msg
---     personDisplay person = ... -- <- you should implement this.
---
---     If you don't know html, consider just using something simple
---     formatting like bolding their name, title in regular text and
---     age  in italics.
+-- (a) Create a constant named `people` that is a list of people.
+--     Define it to be all of the people you made in the previous question.
+--     Add its type annotation. 
 -- 
--- (b) Use it in your view function:
---      * First for one person
---      * then for all of them (duplicating the code that use it for each
---        person is fine.)
+-- (b) Use the list in your view to display all of these people.
+--     Hint: You'll need to use `List.map`
 
-module ConvertHTML1 exposing (..)
+module Lists1 exposing (..)
 
 import Browser
 import Html exposing (Html, div, span, p, text)
@@ -59,6 +52,10 @@ lakin =
     , title = Nothing
     }
 
+people : List Person
+people = 
+    [doug, jimmy, lakin]
+
 
 titleToString : Title -> String
 titleToString title = 
@@ -73,9 +70,15 @@ titleToString title =
             "Coordinator"
             
 
--- Lakin's hint
---     personDisplay: Person -> Html Msg
---     personDisplay person = 
+displayTitle : Maybe Title -> String
+displayTitle personTitle =
+    case personTitle of
+        Nothing ->
+            ""
+
+        Just title ->
+            titleToString title
+            
 
 personDisplay: Person -> Html msg
 personDisplay person = 
@@ -105,15 +108,8 @@ personDisplay person =
         ]
     ]
 
-displayTitle : Maybe Title -> String
-displayTitle personTitle =
-    case personTitle of
-        Nothing ->
-            ""
-
-        Just title ->
-            titleToString title
 
 
 main =
-    personDisplay doug
+    text("hello")
+-- personDisplay doug
