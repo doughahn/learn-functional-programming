@@ -52,9 +52,6 @@ lakin =
     , title = Nothing
     }
 
-people : List Person
-people = 
-    [doug, jimmy, lakin]
 
 
 titleToString : Title -> String
@@ -108,12 +105,21 @@ personDisplay person =
         ]
     ]
 
+people : List Person
+people = 
+    [doug, jimmy, lakin]
+
+peopleElement : List (Html msg)
+peopleElement = 
+    List.map personDisplay people
+
+
 -- I need to get the list of people and map each one through the persondisplay function
 -- List (people) -> persondisplay
 -- personDisplay doug
-map : people -> personDisplay 
-map = List.map (personDisplay people)
+-- map : List -> PersonDisplay 
+-- map = List.map (personDisplay people)
 
+main : Html msg
 main =
-    text("hello")
--- personDisplay doug
+    div [] peopleElement

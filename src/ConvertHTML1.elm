@@ -71,39 +71,12 @@ titleToString title =
             "Strategist"
         Coordinator ->
             "Coordinator"
-            
+
 
 -- Lakin's hint
 --     personDisplay: Person -> Html Msg
 --     personDisplay person = 
 
-personDisplay: Person -> Html msg
-personDisplay person = 
-    div []
-    [ 
-        p [] 
-        [
-            span [] 
-                [
-                    text "Name: " 
-                    , text person.firstName 
-                    , text " " 
-                    , text person.lastName
-                ]
-            , span [] 
-                [
-                    text " Title: " 
-                    , (person.title |> displayTitle |> text)
-                ]
-            , span [] 
-                [
-                    text " Ageism: " 
-                    , text (
-                        String.fromInt(person.age)
-                    )
-                ]
-        ]
-    ]
 
 displayTitle : Maybe Title -> String
 displayTitle personTitle =
@@ -115,5 +88,41 @@ displayTitle personTitle =
             titleToString title
 
 
+personDisplay: Person -> Html msg
+personDisplay person = 
+    div []
+    [ 
+        p [] 
+        [
+            span [] 
+                [ text "Name: " 
+                , text person.firstName 
+                , text " " 
+                , text person.lastName
+                ]
+            , span [] 
+                [ text " Title: " 
+                , (person.title |> displayTitle |> text)
+                ]
+            , span [] 
+                [text " Ageism: " 
+                , text (
+                    String.fromInt(person.age)
+                )
+            ]
+        ]
+    ]
+
+
+
+
+
+main : Html msg
 main =
-    personDisplay doug
+    div [] [
+        personDisplay doug
+        , personDisplay jimmy 
+        , personDisplay lakin
+    ]
+
+--    personDisplay doug
